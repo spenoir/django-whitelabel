@@ -1,0 +1,70 @@
+@import 'sass/base'
+@import 'sass/header'
+@import 'sass/buttons'
+@import 'sass/footer'
+
+section#page
+	width: $page-width
+	clear: both
+	margin: 0 auto
+	min-width: $min-page-width
+	max-width: $page-width-max
+	position: relative
+	font-size: 1.2em
+	display: block
+
+	.share
+		position: absolute
+		top: $default-padding
+		right: 0
+		display: block
+
+	article
+		clear: both
+		display: inline-block
+		margin-top: -1px
+		width: 94%
+		padding: 3%
+		background: #FFF
+
+		h1
+			color: $darkest-grey
+
+		.col1
+			float: left
+			width: 60%
+
+		.col2
+			float: right
+			width: 30%
+
+		ul#gallery
+			padding: 0
+
+			li
+				list-style: none
+
+				img
+					width: 100%
+					border: 1px solid #3bb4dd
+
+				p.caption
+					background: #3BB4DD
+					color: white
+					border: 1px solid #3BB4DD
+					margin-top: -4px
+					width: 70%
+					border-bottom-right-radius: $default-padding
+					padding: $default-padding / 4
+					display: inline-block
+
+	button, a.button
+		color: $white
+		border-color: #3079ED
+		@include background-image(linear-gradient($light-blue, $dark-blue))
+		@include box-shadow(0 1px 2px $white)
+		text-shadow: -2px -1px 0px $dark-blue
+		@include border-radius(2px)
+		padding: 5px 20px 9px
+		display: inline-block
+		font-weight: bold

@@ -1,0 +1,6 @@
+{% extends "skeleton.html" %}
+{% load mustachejs media %}
+        {% block header %}{% include "pages/includes/_header.html" %}{% endblock %}
+
+		{% block footer %}{% include "pages/includes/_footer.html" %}{% endblock %}
+        {% block main_js %}{% include_media 'application.js' %}{% endblock %}

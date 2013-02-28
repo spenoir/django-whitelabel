@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans "Whitelabel site admin" %}{% endblock %}
+
+<!--<script type="text/javascript">-->
+    <!--document.domain = 'www.whitelabel.co.uk';-->
+<!--</script>-->
+
+{% block branding %}
+<h1 id="site-name">{% trans "Whitelabel administration" %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

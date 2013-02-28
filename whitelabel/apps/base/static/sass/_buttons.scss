@@ -1,0 +1,80 @@
+@mixin button-disabled() {
+	&[disabled=disabled] {
+		border-color: $darkest-grey;
+		background: $grey;
+		color: $darkest-grey;
+		text-shadow: 1px 1px 0 $darkest-grey;
+		@include box-shadow(inset -2px -2px 4px $darkest-grey);
+	}
+}
+
+button, .button, input[type=submit] {
+	height: 2.4em;
+	font: 12px Arial, Helvetica, sans-serif bold;
+	cursor: pointer;
+	padding: 1px 15px;
+	border: 1px solid #0a75bf;
+	border-radius: 5px;
+	display: inline;
+	overflow: visible;
+	text-align: center;
+	color: #FFF;
+	@include background-with-css2-fallback(linear-gradient(top, #3bb4dd, #4295ce));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#3bb4dd', endColorstr = '#4295ce');
+	@include box-shadow(inset -2px -2px 4px #0A75BF);
+	text-shadow: 1px 1px 0 #0a75bf;
+	@include button-disabled();
+
+	&:hover {
+		padding: 0 14px;
+		color: $white;
+		@include background-with-css2-fallback(linear-gradient(top, #01a6dd, #137bc8));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#01a6dd', endColorstr = '#137bc8');
+
+		@include box-shadow(inset 2px 2px 4px #0A75BF);
+
+		@include button-disabled();
+	}
+	&:active {
+		padding: 0 14px;
+		border-width: 2px;
+		color: $white;
+		@include background-with-css2-fallback(linear-gradient(top, #0fcddd, #338bc8));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0fcddd', endColorstr = '#338bc8');
+
+		@include box-shadow(inset 2px 2px 4px #0A75BF);
+
+		@include button-disabled();
+	}
+	&.forward {
+		padding-right: 35px;
+		background-repeat: no-repeat;
+		background-position: 92% 48%;
+		@include background-with-css2-fallback(image-url("img/css/button-forward.png"), linear-gradient(top, #3bb4dd, #4295ce));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#3bb4dd', endColorstr = '#4295ce');
+		background-repeat: no-repeat;
+		@include button-disabled();
+
+		&:hover {
+			padding-right: 34px;
+			background-position: 96% 48%;
+		}
+	}
+	&.back {
+		padding-left: 35px;
+		background-repeat: no-repeat;
+		background-position: 8% 48%;
+		@include background-with-css2-fallback(image-url("img/css/button-back-sec.png"), linear-gradient(top, #3bb4dd, #4295ce));
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#3bb4dd', endColorstr = '#4295ce');
+		background-repeat: no-repeat;
+		@include button-disabled();
+
+		&:hover {
+			padding-left: 34px;
+			background-position: 4% 48%;
+		}
+	}
+}
+
+
+

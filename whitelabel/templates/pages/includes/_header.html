@@ -1,0 +1,24 @@
+<header>
+    <div id="top">
+        <div id="top-cont">
+
+            <div id="logo">
+                <span id="title">
+                    <a href="/">
+                        <h1>{{ SITE.domain }}</h1>
+                    </a>
+                </span>
+	        </div>
+
+            <nav>
+                <ul>
+                    {% for page in mainnav_pages %}
+                        <li class="{% if page.slug %}{{ page.slug }}{% else %}home{% endif %}"><a{% if page.slug and page.slug in request.path %} class="active"{% elif not page.slug and request.path == '/' %} class="active"{% endif %}
+                                href="{% if page.slug %}/{{ page.slug }}/{% else %}/{% endif %}">{{ page.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</header>

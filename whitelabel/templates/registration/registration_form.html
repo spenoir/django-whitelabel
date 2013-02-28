@@ -1,0 +1,12 @@
+{% extends "skeleton_basic.html" %}
+{% load i18n %}
+
+{% block article %}
+    <h1>Register with Simon's Taxes</h1>
+<form class="float" method="post" action=".">{% csrf_token %}
+
+    {% include "pages/includes/_form.html" %}
+
+	<input class="button primary forward" type="submit" value="{% trans 'Register' %}" />
+</form>
+{% endblock %}

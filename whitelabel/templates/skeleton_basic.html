@@ -1,0 +1,29 @@
+{% load media %}
+{% include '_head.html' %}
+<body {% block body_attr %}class="{{ slug }}"{% endblock %}>
+{% block header %}{% endblock %}
+<section id="page">
+    {% block page %}
+        <article role="page">
+            {% block article %}{% endblock %}
+        </article>
+    {% endblock %}
+</section>
+
+{% block footer %}{% endblock %}
+
+
+{% if OFFLINE %}
+    {% include_media 'jquery.js' %}
+{% else %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+{% endif %}
+
+<script type="text/javascript">
+    var globals = {{ JS_GLOBAL_VARS|safe }};
+</script>
+
+{% block main_js %}{% endblock %}
+
+</body>
+</html>

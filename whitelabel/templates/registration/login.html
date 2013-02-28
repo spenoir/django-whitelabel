@@ -1,0 +1,21 @@
+{% extends "skeleton_basic.html" %}
+{% load i18n %}
+
+{% block article %}
+    <h1>Login</h1>
+    <form class="float" method="post" action=".">{% csrf_token %}
+        {% include "pages/includes/_form.html" %}
+
+        <input class="button" type="submit" value="{% trans 'Log in' %}"/>
+        <input type="hidden" name="next" value="{{ next }}"/>
+
+
+    </form>
+{#    <hr class="clear" />#}
+{##}
+{#        <p class="clear">{% trans "Forgot password" %}? <a#}
+{#                href="{% url auth_password_reset %}">{% trans "Reset it" %}</a>!</p>#}
+{##}
+{#        <p>{% trans "Not member" %}? <a href="{% url registration_register %}">{% trans "Register" %}</a>!</p>#}
+
+{% endblock %}

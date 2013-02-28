@@ -1,0 +1,18 @@
+{{ page.content|safe }}
+
+<ul id="gallery">
+{% for img in gallery_images %}
+    <li>
+	    <hr />
+	    <h1>{{ img.title }}</h1>
+		<a href="{{ img.link }}"><img src="{{ MEDIA_URL }}{{ img.image }}" name="{{ img.title }}" /></a>
+	    <p class="caption">
+            {{ img.caption }}
+			<br />
+            {#<strong>Tags: {% for tag in img.tags.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</strong>#}
+
+        </p>
+    </li>
+
+{% endfor %}
+</ul>

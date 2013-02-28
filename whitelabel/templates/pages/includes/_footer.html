@@ -1,0 +1,9 @@
+<footer>
+    <ul>
+    {% for page in footer_pages %}
+        <li><a href="{{ page.slug }}">{{ page.title }}</a></li>
+    {% endfor %}
+        <li class="last"><h2><a href="/contact/">contact</a></h2></li>
+    </ul>
+
+</footer>

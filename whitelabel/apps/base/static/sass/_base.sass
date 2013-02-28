@@ -1,0 +1,153 @@
+@import 'normalize'
+@import 'compass'
+@import 'blueprint/form'
+
+$dark-blue: #005181
+$darkest-blue: #061B49
+$mid-blue: #075282
+$light-blue: #3E8DB7
+$green: #3B98B6
+$grey: #999999
+$darkest-grey: #333333
+$white: #FFFFFF
+$red: #ED1C24
+
+$h1-size: 30px
+$h1-size-mobile: 24px
+
+$phone-media: 480px
+$phone-media-lrg: 720px
+
+$page-width: 85%
+$page-width-max: 1300px
+
+@media screen and (max-device-width: $phone-media-lrg), screen and (max-device-width: $phone-media)
+	$page-width: 92%
+
+$header-width: $page-width
+$min-page-width: 320px
+$default-padding: 20px
+$default-font-size: 12px
+
+html, body
+	font-family: 'Walter Turncoat', 'Trebuchet', 'Trebuchet MS', sans-serif, cursive
+
+html
+	padding: 15px
+
+body
+	background: $darkest-grey
+	padding-bottom: 30px
+	min-height: 600px
+	height: 100%
+	font-size: $default-font-size
+
+a
+	text-decoration: none
+	&:hover
+		cursor: pointer
+
+h1
+	color: $darkest-grey
+	font-size: $h1-size
+	font-family: 'Trebuchet', 'Trebuchet MS', sans-serif
+	font-weight: normal
+	margin-top: 0
+
+h2, h3
+	font-weight: normal
+	color: $darkest-grey
+
+hr
+	height: 2px
+	border: none
+	background: #3bb4dd
+	margin: 2em
+
+.loading
+	background: url('img/ajax-loader.gif') no-repeat center bottom
+	padding-bottom: 20px
+	text-align: center
+	width: 130px
+	font-weight: bold
+	display: none
+	margin: 0 auto
+
+@mixin form-float-layout($total-width: 60%, $label-width: 40%, $input-width: 45%, $button-float: right)
+	form
+		min-width: 320px
+		width: $total-width
+		margin: 0 auto
+
+		label
+			float: left
+			width: $label-width
+			padding-right: 2%
+			margin: 0.5em 0
+			clear: left
+			text-align: right
+			line-height: 2.5em
+			margin: 0px 0 20px
+
+			.req
+				color: $red
+				font-weight: bold
+
+		input
+			float: left
+			width: $input-width
+			&[type=text]
+				padding:  1%
+				border-color: #3bb4dd
+			&[type=password]
+				padding:  1%
+				border-color: #3bb4dd
+			&[type=submit]
+				width: auto
+				float: $button-float
+				border-color: #3bb4dd
+
+		textarea
+			float: left
+			width: $input-width + 7
+			border-color: #3bb4dd
+
+		select
+			float: left
+			width: $input-width + 9
+			font-size: 16px
+			margin-top: 0.2em
+			padding: 5px
+			border-color: #3bb4dd
+
+		.errorlist
+			float: left
+			color: $red
+			list-style: disc
+			width: 38%
+			text-align: right
+			margin: 0
+			padding: 0
+			clear: left
+
+			li
+				list-style: disc
+				list-style-position: inside
+
+		button, .button
+			float: right
+			clear: both
+
+
++blueprint-form
++form-float-layout
+
+@mixin border-image($url, $offsets, $repeats: stretch)
+	@include experimental("border-image", url($url) $offsets $repeats,  -moz, -webkit, -o, -ms, -khtml, official)
+
+@media screen and (max-device-width: $phone-media-lrg), screen and (max-device-width: $phone-media)
+	h1, .nav li
+		font-size: $h1-size-mobile
+
+	header #top #top-cont #news-cont
+		display: none

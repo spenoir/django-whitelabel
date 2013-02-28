@@ -1,0 +1,61 @@
+{% load media %}
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+	<head>
+	<!--[if IE lte 8]>
+    <script type="text/javascript"
+     src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+
+    <style>
+     .chromeFrameInstallDefaultStyle {
+       width: 100%; /* default is 800px */
+       border: 5px solid blue;
+     }
+    </style>
+
+    <div id="prompt">
+    	<p>For a better User Interface, please install Google Chrome Frame.</p>
+    </div>
+
+    <script>
+     // The conditional ensures that this code will only execute in IE,
+     // Therefore we can use the IE-specific attachEvent without worry
+     window.attachEvent("onload", function() {
+       CFInstall.check({
+         mode: "overlay"
+       });
+     });
+    </script>
+	<![endif]-->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>{{ APP_TITLE_SHORT }} {% block title %} |
+        {% if page %}{{ page.title|capfirst }}{% endif %}{% endblock %}</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="cache-control" content="public"/>
+    <meta name="robots" content="noodp"/>
+    <meta name="language" content="{{ LANGUAGE_CODE }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="description"
+          content="{% block meta-description %}{% endblock %}"/>
+    <meta name="keywords"
+          content="{% block meta-keywords %}{{ entry_tags|join:", " }}{% endblock %}"/>
+	<meta name="google-site-verification" content="" />
+
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}img/apple-touch-icon.png"/>
+    <link rel="favicon" href="{{ STATIC_URL }}img/favicon.ico"/>
+    {# 320x460 = iphone, 1004x768 = ipad #}
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
+
+	<link rel="alternate" type="application/rss+xml" title="whitelabel.co.uk - Latest entries" href="http://www.whitelabel.co.uk/blog/feeds/latest/" />
+	<link rel="canonical" href="http://www.whitelabel.co.uk" />
+    {% block meta %}{% endblock %}
+    {% block styles %}{% include_media "styles.css" %}{% endblock %}
+    {% block link %}{% endblock %}
+    <link href='//fonts.googleapis.com/css?family=Walter+Turncoat' rel='stylesheet' type='text/css'>
+    {% block extra_css %}{% endblock %}
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/modernizr.custom.41873.js"></script>
+</head>

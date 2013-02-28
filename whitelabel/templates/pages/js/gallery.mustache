@@ -1,0 +1,16 @@
+<ul id="gallery">
+{{#gallery_images}}
+    <li>
+	    <hr />
+	    <h1>{{attributes.title}}</h1>
+		<a href="{{attributes.link}}"><img src="{{attributes.image}}" name="{{attributes.title}}" /></a>
+	    <p class="caption">
+            {{attributes.caption}}
+			<br />
+            <strong>Tags: {{attributes.tags}}</strong>
+
+        </p>
+    </li>
+
+{{/gallery_images}}
+</ul>

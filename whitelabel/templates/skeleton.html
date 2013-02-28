@@ -1,0 +1,66 @@
+{% load mustachejs media %}
+{% include '_head.html' %}
+<body {% block body_attr %}class="{{ slug }}"{% endblock %}>
+
+{% block header %}{% endblock %}
+<section id="page">
+	<div class="share">
+
+    </div>
+    {% block page %}
+        <article role="page">
+            {% block article %}{% endblock %}
+        </article>
+    {% endblock %}
+</section>
+
+{% block footer %}{% endblock %}
+<div class="loading">Loading...</div>
+
+
+{% if OFFLINE %}
+    {% include_media 'jquery.js' %}
+{% else %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+{% endif %}
+
+<script type="text/javascript">
+    var globals = {{ JS_GLOBAL_VARS|safe }};
+</script>
+
+{% block main_js %}{% endblock %}
+
+{% block js_templates %}
+    {% mustachejs 'home' %}
+    {% mustachejs 'gallery' %}
+{% endblock %}
+<script type="text/javascript">
+{% block extra_js_vars %}
+    globals.page = {}; globals.page.title = "{{ page.title }}";
+
+    var pages_json = {{ pages_json|safe }},
+		PAGES = new uidev.Pages(pages_json.objects);
+
+    {% if slug == 'gallery' %}
+    var gallery_images_json = {{ gallery_images_json|safe }};
+    uidev.GALLERY_IMAGES = new uidev.GalleryImages(gallery_images_json.objects);
+	{% endif %}
+
+{% endblock %}
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
