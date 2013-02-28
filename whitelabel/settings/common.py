@@ -51,16 +51,6 @@ MANAGERS = ADMINS
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'd59kk7mqv0ulhg',
-    'HOST': 'ec2-23-21-91-97.compute-1.amazonaws.com',
-    'PORT': 5432,
-    'USER': 'afipjgvjohyqwp',
-    'PASSWORD': 'ukN9exjqkfqRUmIg5Te0T1Lhee'
-  }
-}
 ########## END DATABASE CONFIGURATION
 
 ########## JOHNNY CACHE ############
